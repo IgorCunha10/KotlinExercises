@@ -9,7 +9,7 @@ fun main() {
     var sum = 0
 
     for(i in 1..numberConv) {
-        sum = sum + i
+        sum += i
     }
 
     println("The sum from 1 to " + number + " is: ")
