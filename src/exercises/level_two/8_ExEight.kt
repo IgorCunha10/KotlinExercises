@@ -16,7 +16,6 @@ fun main() {
         while(i * i <= numConv) {
             if(numConv % i == 0) {
                 isPrime = false
-
             }
             i++
         }
