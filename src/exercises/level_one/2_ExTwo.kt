@@ -1,4 +1,4 @@
-package exercises
+package exercises.level_one
 
 fun main(){
 
