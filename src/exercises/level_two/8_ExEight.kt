@@ -14,7 +14,7 @@ fun main() {
         isPrime = false
     } else {
         while(i * i <= numConv) {
-            if(numConv % i == 0) {
+            if(numConv % i == 0) {1
                 isPrime = false
             }
             i++
