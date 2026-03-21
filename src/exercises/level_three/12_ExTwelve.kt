@@ -1,36 +1,40 @@
 package exercises.level_three
 
+fun <T : Comparable<T>> MutableList<T>.bubbleSort () {
+    val n = this.size
+    var swapped: Boolean
+
+    for (i in 0 until n - 1) {
+        swapped = false
+
+        for (j in 0 until n - i - 1) {
+            if (this[j] > this[j + 1]) {
+
+                val temp = this[j]
+                this[j] = this[j + 1]
+                this[j + 1] = temp
+                swapped = true
+            }
+        }
+        if (!swapped) break
+    }
+
+}
+
+
 fun main() {
 
     //Bubble Sort Algorithm Implementation
 
-    var t: Int
-    var a: IntArray = intArrayOf(40, 20, 50, 10, 30)
+    val list = mutableListOf<Int>(1, 22, 33, 56, 86, 2213, 5, 2)
+    list.bubbleSort()
+    println("Sorted list " + list)
 
-    println("Unsorted Numbers")
-    for(i in 0..4) {
-        print(" " + a[i])
-    }
-
-    for(i in 0..4) {
-        for (j in 1..(4-i)) {
-            if(a[j - 1] > a[j]) {
-
-                t = a[j - 1]
-                a[j - 1] = a[j]
-                a[j] = t
-
-            }
-        }
-    }
-
-    println()
-    println("Sorted numbers")
-        for (i in 0..4) {
-            print(" " + a[i])
-        }
+    //Selection Sort Algorithm Implementation
 
 
 
-    }
+
+
+}
 
