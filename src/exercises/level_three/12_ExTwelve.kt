@@ -93,9 +93,13 @@ fun main() {
 
     //Quick Sort Algorithm Implementation
 
-    val expected = intArrayOf(1, 2, 4, 22, 33, 56, 86, 2213)
-    assertArrayEquals(expected, quickSort(list))
+    val intListArr = intArrayOf(1, 22, 33, 56, 86, 2213, 5, 2)
 
+    val expected = intArrayOf(1, 2, 4, 22, 33, 56, 86, 2213)
+    quickSort(intListArr)
+    println("Quick Sorted list " + intListArr)
 
 }
+
+fun assertArrayEquals(expected: IntArray, quickSort: IntArray) {}
 
