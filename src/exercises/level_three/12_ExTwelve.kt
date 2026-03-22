@@ -45,6 +45,37 @@ fun selectionSort(arr: MutableList<Int>) {
 
 }
 
+fun quickSort(arr: IntArray, left: Int = 0, right: Int = arr.size - 1): IntArray {
+        var start = left
+        var end = right
+        val pivot = arr[(left + right) / 2]
+
+    while (start <= end) {
+        while (arr[start] < pivot) {
+            start++
+        }
+        while (arr[end] > pivot) {
+            end--
+        }
+    if (start <= end) {
+        val temp = arr[start]
+        arr[start] = arr[end]
+        arr[end] = temp
+        start++
+        end--
+    }
+    }
+
+    if (left < end) {
+        quickSort(arr, left, end)
+    }
+    if (start < right) {
+        quickSort(arr, start, right)
+    }
+    return arr
+
+}
+
 
 fun main() {
 
@@ -60,6 +91,10 @@ fun main() {
     selectionSort(list)
     println("Selection Sorted list " + list)
 
+    //Quick Sort Algorithm Implementation
+
+    val expected = intArrayOf(1, 2, 4, 22, 33, 56, 86, 2213)
+    assertArrayEquals(expected, quickSort(list))
 
 
 }
