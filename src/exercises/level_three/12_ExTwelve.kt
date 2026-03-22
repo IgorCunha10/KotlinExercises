@@ -1,5 +1,7 @@
 package exercises.level_three
 
+import kotlin.math.min
+
 fun <T : Comparable<T>> MutableList<T>.bubbleSort () {
     val n = this.size
     var swapped: Boolean
@@ -21,6 +23,28 @@ fun <T : Comparable<T>> MutableList<T>.bubbleSort () {
 
 }
 
+fun selectionSort(arr: MutableList<Int>) {
+
+    val n = arr.size
+
+    for(i in 0 until n - 1) {
+        var minIndex = i
+
+        for (j in i + 1 until n) {
+            if (arr[j] < arr[minIndex]) {
+
+                minIndex = j
+
+            }
+        }
+
+        val temp = arr[i]
+        arr[i] = arr[minIndex]
+        arr[minIndex] = temp
+    }
+
+}
+
 
 fun main() {
 
@@ -28,11 +52,13 @@ fun main() {
 
     val list = mutableListOf<Int>(1, 22, 33, 56, 86, 2213, 5, 2)
     list.bubbleSort()
-    println("Sorted list " + list)
+    println("Bubble Sorted list " + list)
 
     //Selection Sort Algorithm Implementation
 
 
+    selectionSort(list)
+    println("Selection Sorted list " + list)
 
 
 
