@@ -2,6 +2,29 @@ package exercises.level_three
 
 import kotlin.math.min
 
+fun main() {
+
+    //Bubble Sort Algorithm Implementation
+
+    val list = mutableListOf<Int>(1, 22, 33, 56, 86, 2213, 5, 2)
+    list.bubbleSort()
+    println("Bubble Sorted list " + list)
+
+    //Selection Sort Algorithm Implementation
+
+    selectionSort(list)
+    println("Selection Sorted list " + list)
+
+    //Quick Sort Algorithm Implementation
+
+    val intListArr = intArrayOf(1, 22, 33, 56, 86, 2213, 5, 2)
+    //expected = [1, 2, 4, 22, 33, 56, 86, 2213]
+
+    quickSort(intListArr, 0, intListArr.size - 1)
+    println("Quick Sorted list " + "[" + intListArr.joinToString(", ") + "]")
+
+}
+
 fun <T : Comparable<T>> MutableList<T>.bubbleSort () {
     val n = this.size
     var swapped: Boolean
@@ -20,7 +43,6 @@ fun <T : Comparable<T>> MutableList<T>.bubbleSort () {
         }
         if (!swapped) break
     }
-
 }
 
 fun selectionSort(arr: MutableList<Int>) {
@@ -42,64 +64,33 @@ fun selectionSort(arr: MutableList<Int>) {
         arr[i] = arr[minIndex]
         arr[minIndex] = temp
     }
-
 }
 
-fun quickSort(arr: IntArray, left: Int = 0, right: Int = arr.size - 1): IntArray {
-        var start = left
-        var end = right
-        val pivot = arr[(left + right) / 2]
+fun quickSort(arr: IntArray, low: Int, high: Int) {
+    if (low < high) {
+        val pivotIndex = partition(arr, low, high)
+        quickSort(arr, low, pivotIndex - 1)
+        quickSort(arr, pivotIndex + 1, high)
+    }
+}
 
-    while (start <= end) {
-        while (arr[start] < pivot) {
-            start++
+fun partition(arr: IntArray, low:Int, high: Int): Int {
+        val pivot = arr[high]
+        var i = low - 1
+
+    for (j in low until high) {
+        if (arr[j] <= pivot) {
+            i++
+            swap(arr, i, j)
         }
-        while (arr[end] > pivot) {
-            end--
-        }
-    if (start <= end) {
-        val temp = arr[start]
-        arr[start] = arr[end]
-        arr[end] = temp
-        start++
-        end--
-    }
     }
 
-    if (left < end) {
-        quickSort(arr, left, end)
-    }
-    if (start < right) {
-        quickSort(arr, start, right)
-    }
-    return arr
-
+    swap(arr, i + 1, high)
+    return i + 1
 }
 
-
-fun main() {
-
-    //Bubble Sort Algorithm Implementation
-
-    val list = mutableListOf<Int>(1, 22, 33, 56, 86, 2213, 5, 2)
-    list.bubbleSort()
-    println("Bubble Sorted list " + list)
-
-    //Selection Sort Algorithm Implementation
-
-
-    selectionSort(list)
-    println("Selection Sorted list " + list)
-
-    //Quick Sort Algorithm Implementation
-
-    val intListArr = intArrayOf(1, 22, 33, 56, 86, 2213, 5, 2)
-
-    val expected = intArrayOf(1, 2, 4, 22, 33, 56, 86, 2213)
-    quickSort(intListArr)
-    println("Quick Sorted list " + intListArr)
-
+fun swap(arr: IntArray, i: Int, j: Int) {
+    val temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
 }
-
-fun assertArrayEquals(expected: IntArray, quickSort: IntArray) {}
-
