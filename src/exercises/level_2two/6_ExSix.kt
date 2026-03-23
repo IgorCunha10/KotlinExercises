@@ -1,6 +1,4 @@
-package exercises.level_two
-
-import kotlin.random.Random
+package exercises.level_2two
 
 fun main() {
 

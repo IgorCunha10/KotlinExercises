@@ -1,6 +1,4 @@
-package exercises.level_three
-
-import kotlin.math.min
+package exercises.level_3three
 
 fun main() {
 

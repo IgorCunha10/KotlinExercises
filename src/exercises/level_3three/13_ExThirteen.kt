@@ -1,4 +1,4 @@
-package exercises.level_three
+package exercises.level_3three
 
 fun main() {
 
