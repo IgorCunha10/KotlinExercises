@@ -1,8 +1,6 @@
-package exercises.level_4four.level_sixteen
+package exercises.level_4four.ex_sixteen
 
-import exercises.level_4four.level_sixteen.Animal
-
-    fun main(){
+fun main(){
         var gato = Gato("Lunin", 1, 4.0, "preto")
         gato.makeSound()
 

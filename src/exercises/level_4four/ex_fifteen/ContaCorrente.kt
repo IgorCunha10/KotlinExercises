@@ -1,4 +1,4 @@
-package exercises.level_4four.level_fifteen
+package exercises.level_4four.ex_fifteen
 
 fun main() {
 

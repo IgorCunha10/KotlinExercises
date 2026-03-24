@@ -1,4 +1,4 @@
-package exercises.level_4four.level_sixteen
+package exercises.level_4four.ex_sixteen
 
 class Cachorro: Animal {
 

@@ -1,4 +1,4 @@
-package exercises.level_4four.level_sixteen
+package exercises.level_4four.ex_sixteen
 
 open class Animal(nome1: String, idade1: Int, peso1: Double, cor1: String) {
 
