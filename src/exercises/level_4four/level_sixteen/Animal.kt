@@ -1,18 +1,14 @@
 package exercises.level_4four.level_sixteen
 
-open class Animal (categoria: String){
+open class Animal(nome1: String, idade1: Int, peso1: Double, cor1: String) {
 
-    var sound: String = " "
-    val categoria = categoria
+    val nome: String = ""
+    var idade: Int = 0
+    var peso: Double = 0.0
+    var cor: String = ""
 
-    fun makeSound() {
-        if(categoria == "Cachorro") {
-            sound = "Au Au"
-        } else if(categoria == "Gato"){
-            sound = "Miau"
-        } else {
-            println("Animal desconhecido.")
-        }
-        println(sound)
+    open fun makeSound() {
+        println("Fazendo som")
     }
+
 }

@@ -1,10 +1,10 @@
 package exercises.level_4four.level_sixteen
 
-class Gato(categoria: String): Animal(categoria) {
+class Gato : Animal {
+    constructor(nome: String, idade: Int, peso: Double, cor: String) : super(nome, idade, peso, cor)
 
+    override fun makeSound() {
+        println("Miau")
+    }
 }
 
-fun main() {
-    var gato = Gato("Gato")
-    gato.makeSound()
-}

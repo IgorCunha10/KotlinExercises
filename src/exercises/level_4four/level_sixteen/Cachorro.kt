@@ -1,10 +1,11 @@
 package exercises.level_4four.level_sixteen
 
-class Cachorro(categoria: String): Animal(categoria) {
+class Cachorro: Animal {
 
+    constructor(nome:String, idade: Int, peso: Double, cor: String) : super(nome, idade, peso, cor)
+
+    override fun makeSound() {
+        println("Au Au")
+    }
 }
 
-fun main() {
-    val cachorro = Cachorro("Cachorro")
-    cachorro.makeSound()
-}
