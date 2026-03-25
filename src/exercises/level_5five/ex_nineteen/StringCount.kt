@@ -6,10 +6,13 @@ fun main() {
     var userWord = readln().toString()
 
     var vowelCount = vowelCounter(userWord)
+    var consonants = userWord.length - vowelCount
 
     println("The number of vowels in the word sent is: $vowelCount")
+    println("The number of consonants in the word sent is: $consonants")
 
 }
+
 
 fun vowelCounter(word: String): Int {
 
