@@ -27,3 +27,4 @@ fun vowelCounter(word: String): Int {
     }
     return counter
 }
+
