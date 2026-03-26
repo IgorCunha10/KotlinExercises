@@ -6,12 +6,15 @@ fun main() {
 
     println("The actual list of users are:")
     println(users.userList)
+    println()
 
-    println("Users emails: ")
+    println("Users emails:")
     println(users.userEmail)
+    println()
 
     println("Users ages:")
     println(users.userAge)
+    println()
 
     println("Users countries:")
     println(users.userCountry)
