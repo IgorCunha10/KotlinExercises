@@ -5,7 +5,7 @@ fun main() {
 
     userCache.put(1, "Alex")
     userCache.put(2, "Éderson")
-    
+
     println(userCache.get(1))
     println(userCache.get(2))
 }
