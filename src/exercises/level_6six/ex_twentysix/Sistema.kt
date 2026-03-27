@@ -1,64 +1,53 @@
 package exercises.level_6six.ex_twentysix
 
-private var choice: Boolean = false
-private var total: Double = 0.0
+private var escolha: Boolean = false
 
-fun main() {
+fun main(){
+    registerUser()
+    println("")
 
     do {
-        showProducts()
-        typeChoice()
-        
-      } while (choice)
+        showMenu()
+        getChoice()
+    }while (escolha)
 
-    }
+}
 
-        fun addProduct() {
-            val product = Produtos<Int, String>()
+fun registerUser() {
+    println("Olá, Digite o seu nome para se cadastrar no sistema do nosso restaurante.")
+    val user = readln()
+    println("Digite agora a senha da sua conta:")
+    val senha = readln()
+    println("Conta criada com sucesso!")
 
-            product.put(1, "Arroz")
-            product.put(2, "Feijão")
-            product.put(3, "Macarrão")
-            product.put(4, "Ovos")
-            product.put(5, "Frango")
+}
 
+fun getChoice() {
+    var userEscolha = readln().toInt()
+    if (userEscolha <= 3) {
+        when(userEscolha) {
+            1 -> showCarte()
         }
 
-        fun typeChoice():Int {
-
-            var inputChoice = readln().toInt()
-            if (inputChoice <= 5) {
-                println("Produto adicionado ao carrinho.")
-                choice = true
-            } else if (inputChoice == 6) {
-                println("Finalizando pedido")
-                println("Total: R$" + showTotal())
-                choice = false
-            } else {
-                println("Produto inválido")
-            }
-            return inputChoice
-
-        }
-
-    fun showProducts() {
-        println(" -- Aqui está nossa Lista de produtos -- ")
-        println(" ** Digite o número do produto para adicionar ao carrinho **")
-
-        println(" - 1 - Arroz")
-        println(" - 2 - Feijão")
-        println(" - 3 - Macarrão")
-        println(" - 4 - Ovos")
-        println(" - 5 - Frango")
-        println(" - 6 - Finalizar pedido")
+    } else if (userEscolha == 4) {
+        escolha = false
+    } else {
+        println("Escolha inválida")
     }
+}
 
-//    fun sumProducts() {
-//        var carrinho = Carrinho()
-//
-//    }
+fun showMenu() {
+    println("Bem vindo ao nosso restaurante!")
+    println("Digite o que deseja:")
+    println("1 - Cardápio")
+    println("2 - Finalizar Compra")
+    println("3 - Ver valor do carrinho")
+    println("4 - Sair")
+}
 
-    fun showTotal():Double {
+fun showCarte() {
+    println("1 - Macarrão à bolonhesa")
+    println("2 - Lasagna")
+    println("3 - Escondidinho de carne")
 
-        return total
-    }
+}
