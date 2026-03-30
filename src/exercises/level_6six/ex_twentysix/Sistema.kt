@@ -1,6 +1,7 @@
 package exercises.level_6six.ex_twentysix
 
 private var escolha: Boolean = false
+private var total: Double = 0.0
 
 fun main(){
     registerUser()
@@ -8,8 +9,10 @@ fun main(){
 
     do {
         showMenu()
-        getChoice()
+        getMenuChoice()
     }while (escolha)
+
+    calcularTotal()
 
 }
 
@@ -22,11 +25,15 @@ fun registerUser() {
 
 }
 
-fun getChoice() {
+fun getMenuChoice() {
     var userEscolha = readln().toInt()
     if (userEscolha <= 3) {
         when(userEscolha) {
             1 -> showCarte()
+            2 -> {
+                println("O valor total do seu pedido é:")
+                println("R$" + total + " Reais")
+            }
         }
 
     } else if (userEscolha == 4) {
@@ -34,6 +41,8 @@ fun getChoice() {
     } else {
         println("Escolha inválida")
     }
+
+
 }
 
 fun showMenu() {
@@ -45,9 +54,15 @@ fun showMenu() {
     println("4 - Sair")
 }
 
-fun showCarte() {
-    println("1 - Macarrão à bolonhesa")
-    println("2 - Lasagna")
-    println("3 - Escondidinho de carne")
+fun showCarte(): Int {
+    println("1 - Macarrão à bolonhesa - R$20,00")
+    println("2 - Lasagna - R$30,00")
+    println("3 - Escondidinho de carne - R$35,00")
+
+    return 0
+}
+
+fun calcularTotal(){
+
 
 }
