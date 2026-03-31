@@ -14,17 +14,15 @@ fun getUserChoice() {
 
     println("Deseja jogar outra vez?")
     val userChoice = readln()
-    var playAgain = false
 
     do {
         if (userChoice == "Sim") {
             playGame()
-            playAgain = true
         } else if (userChoice == "Não") {
             println("Fim de Jogo!")
-            playAgain = false
+
         }
-    } while (playAgain)
+    } while (userChoice == "Sim")
 }
 
 fun playGame() {
@@ -36,8 +34,11 @@ fun playGame() {
         var userGuess = readln().toInt()
         if (userGuess == randomNumber) {
             println("Parabéns, você acertou o número")
-        } else {
+        } else if(randomNumber <= 5){
             println("Você errou, tente novamente")
+            println("DICA: O número está no intervalo entre 0 e 5")
+        } else if (randomNumber > 5) {
+            println("DICA: O número está no intervalo entre 6 e 10")
         }
 
     } while (userGuess != randomNumber)
