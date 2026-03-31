@@ -1,7 +1,5 @@
 package exercises.level_6six.ex_twentysix
 
-import kotlin.math.log
-
 private var escolha: Boolean = true
 private var user: String = ""
 private var senha: String = ""
@@ -13,7 +11,7 @@ val escondidinho = Produtos("Escondidinho", 35.0)
 
 fun main(){
     registerUser()
-    println("")
+    println()
 
    if (login()) {
        do {
@@ -25,13 +23,20 @@ fun main(){
    }
 }
 
-fun registerUser() {
-    println("Olá, Digite o seu nome para se cadastrar no sistema do nosso restaurante.")
-    user = readln()
-    println("Digite agora a senha da sua conta:")
-    senha = readln()
-    println("Conta criada com sucesso!")
+fun registerUser(): Usuario {
 
+    println("Olá, Digite o seu nome (Mínimo 5 caracteres): ")
+    user = readln()
+    println("Digite agora a senha da sua conta (Mínimo 5 caracteres):")
+    senha = readln()
+
+
+    return try {
+        Usuario(user, senha)
+   } catch (e: IllegalArgumentException) {
+       println("Erro: ${e.message}")
+       registerUser()
+   }
 }
 
 fun login(): Boolean {
@@ -55,9 +60,14 @@ fun login(): Boolean {
 
     return sucesso
 }
+
 fun getMenuChoice() {
-    var userEscolha = readln().toInt()
-    if (userEscolha <= 3) {
+    var userEscolha = try {
+        readln().toInt()
+    } catch (e: Exception) {
+        println("Escolha inválida")
+    }
+
         when(userEscolha) {
             1 -> showCarte()
             2 -> {
@@ -70,7 +80,6 @@ fun getMenuChoice() {
                   }
                   calcularTotal()
               }
-
             }
             3 -> {
                 println("Finalizando compra...")
@@ -78,13 +87,14 @@ fun getMenuChoice() {
                 println("Obrigado pela preferência!")
                 escolha = false
             }
+            4 -> {
+                println("Finalizando App...")
+                escolha = false
+            }
+
         }
 
-    } else if (userEscolha == 4) {
-        escolha = false
-    } else {
-        println("Escolha inválida")
-    }
+
 
 }
 
@@ -106,7 +116,11 @@ fun showCarte() {
     println("3 - Escondidinho de carne - R$35,00")
     println("4 - Voltar")
 
-    val userKey = readln().toInt()
+    val userKey = try {
+        readln().toInt()
+    } catch (e: Exception) {
+        println("Escreva uma entrada válida")
+    }
     when (userKey) {
             1 -> {
                 carrinho.add(macarrao)
@@ -130,7 +144,6 @@ fun showCarte() {
 
         }
     }
-
 
 fun calcularTotal(){
 
